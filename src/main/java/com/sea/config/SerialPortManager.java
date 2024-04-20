@@ -96,6 +96,7 @@ public class SerialPortManager {
 
     }
 
+
     //  读取字节数组
     public static byte[] readSerialPortData() {
         if (SERIAL_PORT_OBJECT != null && SERIAL_PORT_OBJECT.isOpen()){
@@ -120,8 +121,6 @@ public class SerialPortManager {
         }
         return null;
     }
-
-
 
 }
 

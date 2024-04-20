@@ -24,9 +24,7 @@ public class TestController {
 
     @GetMapping("/connectCOM")
     public String connect(){
-
-
-        SerialPortManager.connectSerialPort("COM4");
+        SerialPortManager.connectSerialPort("COM7");
         return "success";
     }
 

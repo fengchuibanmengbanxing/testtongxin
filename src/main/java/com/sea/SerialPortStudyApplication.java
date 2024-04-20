@@ -1,6 +1,7 @@
 package com.sea;
 
 import com.sea.config.SerialPortManager;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +13,7 @@ import javax.annotation.PreDestroy;
 @SpringBootApplication
 @EnableScheduling
 @EnableAsync
+@MapperScan(value = "com.sea.mapper")
 public class SerialPortStudyApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
@@ -23,9 +25,8 @@ public class SerialPortStudyApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         try{
             //  win
-            SerialPortManager.connectSerialPort("COM1");
-            //  linux centos
-            //SerialPortManager.connectSerialPort("ttyS1");
+            SerialPortManager.connectSerialPort("COM7");
+
         } catch (Exception e){
             System.out.println(e.toString());
         }
