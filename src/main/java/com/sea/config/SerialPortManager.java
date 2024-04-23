@@ -108,7 +108,7 @@ public class SerialPortManager {
                  * ，在循环条件中判断串口的缓冲区中是否有可读取的字节数（SERIAL_PORT_OBJECT.bytesAvailable()）。
                  * 同时，使用Thread.sleep(20)方法暂停当前线程20毫秒，以等待更多的数据到达串口缓冲区。这个循环最多执行5次
                  */
-                while (SERIAL_PORT_OBJECT.bytesAvailable() > 0 && i++ < 5) Thread.sleep(20);
+                while (SERIAL_PORT_OBJECT.bytesAvailable() > 0 && i++ < 2) Thread.sleep(20);
                 byte[] readBuffer = new byte[SERIAL_PORT_OBJECT.bytesAvailable()];
                 int numRead = SERIAL_PORT_OBJECT.readBytes(readBuffer, readBuffer.length);
                 if (numRead > 0) {
