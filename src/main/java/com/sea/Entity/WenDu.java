@@ -4,21 +4,23 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Time;
+
 /**
  * @Author 清醒
- * @Date 2024/4/19 15:27
+ * @Date 2024/4/27 11:58
  */
 
-
-/**
- 光敏
+/***
+ * 温度
  */
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PhotoSensitive {
+public class WenDu {
     private int groupName;
     private int numbering;
-    private  boolean isPhotosensitive;
+    private int wendu;
+    private Time time;
 }

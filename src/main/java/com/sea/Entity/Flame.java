@@ -6,19 +6,19 @@ import lombok.NoArgsConstructor;
 
 /**
  * @Author 清醒
- * @Date 2024/4/19 15:27
+ * @Date 2024/4/27 12:01
  */
-
-
 /**
- 光敏
- */
+ * 火焰
+ * */
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PhotoSensitive {
+public class Flame {
     private int groupName;
     private int numbering;
-    private  boolean isPhotosensitive;
+    private boolean isFlame;
+
 }

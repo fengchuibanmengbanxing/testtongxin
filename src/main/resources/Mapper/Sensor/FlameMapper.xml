@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--接口全类名-->
+<mapper namespace="com.sea.mapper.FlameMapper">
+
+    <update id="FlameUpdate">
+    update flame set isFlame=#{isFlame}
+    where  groupname=#{groupName} and numbering=#{numbering}
+    </update>
+
+<!--//查询是否有火焰-->
+    <select id="isflame" resultType="boolean">
+        select isFlame from flame
+        where  groupname=#{groupName} and numbering=#{numbering}
+    </select>
+
+</mapper>
+
+        <!--文件名要与java包中全类名文件名一样否则程序会找不到-->

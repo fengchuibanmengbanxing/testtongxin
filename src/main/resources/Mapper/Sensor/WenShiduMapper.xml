@@ -7,18 +7,23 @@
 
 
     <insert id="WenShiduInsert">
-        insert into wenshidu (groupname,numbering,wendu,shidu)
+        insert into wenshidu (groupname,numbering,wendu,shidu,time)
         values (
-         #{groupname},
+         #{groupName},
          #{numbering},
          #{wendu},
-         #{shidu}
+         #{shidu},
+         curtime()
             )
     </insert>
 
-    <select id="WenShiduSelect" resultType="com.sea.Entity.WenShidu">
+
+    <select id="findWenShiDu" resultType="com.sea.Entity.WenShidu">
         select * from wenshidu
-        where groupname=#{groupname} and  numbering=#{numbering}
+        where groupname=#{groupName} and numbering=#{numbering}
+        ORDER BY TIME DESC
+        LIMIT 5
+
     </select>
 
 </mapper>

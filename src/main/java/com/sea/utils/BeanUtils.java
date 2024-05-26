@@ -31,4 +31,5 @@ public class BeanUtils implements ApplicationContextAware  {
     public static <T> T getBean(Class<T> clazz) {
         return applicationContext.getBean(clazz);
     }
+
 }

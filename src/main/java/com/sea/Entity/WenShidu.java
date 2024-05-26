@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.sql.Time;
+
 /**
  * @Author 清醒
  * @Date 2024/4/19 15:03
@@ -20,9 +22,9 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class WenShidu {
 
-    private int groupname;
+    private int groupName;
     private int numbering;
-    private double wendu;
-    private double shidu;
-
+    private int wendu;
+    private int shidu;
+    private Time time;
 }

@@ -16,7 +16,6 @@ public interface WenShiduMapper {
  public void WenShiduInsert(WenShidu wenShidu);
 
 //温湿度
- public List<WenShidu> WenShiduSelect(@Param("groupname" )int groupname,
-                                      @Param("numbering" )int numbering);
+public List<WenShidu> findWenShiDu(@Param("groupName") int groupName, @Param("numbering")int numbering);
 
 }

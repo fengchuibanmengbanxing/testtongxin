@@ -27,7 +27,7 @@ public class SerialPortCallback {
             String utf_8 = new String(back, StandardCharsets.UTF_8);
             //打印
             log.info(utf_8);
-            String[] data = utf_8.split(",");
+            String[] data = utf_8.split(",|\\\\n");
             if (data != null) {
                 depositUtils.insert(data);
             }

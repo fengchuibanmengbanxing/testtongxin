@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--接口全类名-->
+<mapper namespace="com.sea.mapper.FumesMapper">
+
+
+    <update id="FumesUpdate">
+        update fumes set isfumes=#{isfumes}
+        where  groupname=#{GroupName} and numbering=#{Numbering}
+    </update>
+    <select id="isfumes" resultType="java.lang.Boolean">
+        select isfumes from fumes
+        where  groupname=#{groupName} and numbering=#{numbering}
+    </select>
+</mapper>
+
+        <!--文件名要与java包中全类名文件名一样否则程序会找不到-->

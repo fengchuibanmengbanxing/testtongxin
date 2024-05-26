@@ -17,8 +17,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Fumes {
-    private int groupname;
+    private int groupName;
     private int numbering;
-    private String isfumes;
+    private boolean isFumes;
 
 }

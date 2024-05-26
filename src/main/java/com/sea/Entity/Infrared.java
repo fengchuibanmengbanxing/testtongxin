@@ -11,14 +11,14 @@ import lombok.NoArgsConstructor;
 
 
 /**
- 红外
+ 人体红外
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Infrared {
-    private int groupname;
+    private int groupName;
     private int numbering;
-    private String isinfrared;
+    private boolean isInfrared;
 
 }

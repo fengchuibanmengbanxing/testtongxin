@@ -6,19 +6,18 @@ import lombok.NoArgsConstructor;
 
 /**
  * @Author 清醒
- * @Date 2024/4/19 15:27
+ * @Date 2024/4/27 12:03
  */
-
 
 /**
- 光敏
- */
-
+ * 雨滴*/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PhotoSensitive {
+public class RainDrop {
+
     private int groupName;
     private int numbering;
-    private  boolean isPhotosensitive;
+    private boolean isRaindrop;
+
 }

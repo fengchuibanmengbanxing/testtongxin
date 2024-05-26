@@ -25,11 +25,12 @@ public class WenShiduServiceimpl implements WenShiduService {
     }
 
     @Override
-    public List<WenShidu> WenShiduSelect(int groupname, int numbering) {
-        //温湿度传感器集合
-       List<WenShidu> list= wenShiduMapper.WenShiduSelect(groupname,numbering);
-       return list;
+    public List<WenShidu> findWenShiDu(int groupName, int numbering) {
+        List<WenShidu> WenShidulist= wenShiduMapper.findWenShiDu(groupName,numbering);
+        return WenShidulist;
     }
+
+
 
 
 }

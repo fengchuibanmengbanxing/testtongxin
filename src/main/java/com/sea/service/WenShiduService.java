@@ -1,5 +1,6 @@
 package com.sea.service;
 
+import com.sea.Entity.WenDu;
 import com.sea.Entity.WenShidu;
 import org.apache.ibatis.annotations.Param;
 
@@ -12,7 +13,7 @@ import java.util.List;
 public interface WenShiduService {
     public void WenShiduInsert(WenShidu wenShidu);
     //温湿度
-    public List<WenShidu> WenShiduSelect( int groupname,int numbering);
+    public List<WenShidu> findWenShiDu( int groupName,int numbering);
 
 
 }
