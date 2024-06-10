@@ -8,14 +8,14 @@ import java.sql.Time;
 
 /**
  * @Author 清醒
- * @Date 2024/4/27 12:02
+ * @Date 2024/6/9 13:31
  */
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Servos {
+public class Pm {
     private int groupName;
     private int numbering;
-    private int angle;
+    private float concentration;
+    private Time time;
 }

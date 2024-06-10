@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
-import java.sql.Time;
+import org.springframework.transaction.annotation.Transactional;
+import java.util.HashSet;
 import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @Author 清醒
@@ -21,6 +21,10 @@ import java.util.List;
 @Component
 @NoArgsConstructor
 public class DepositUtils {
+
+    public HashSet<Integer> getHashset() {
+        return hashset;
+    }
 
     @Autowired
     private WenShiduMapper wenShiduMapper;
@@ -45,107 +49,185 @@ public class DepositUtils {
 
     @Autowired
     private ServosMapper servosMapper;
-
     @Autowired
     private SoilMapper soilMapper;
+    @Autowired
+    private FingerPrintMapper fingerPrintMapper;
+    @Autowired
+    private ID_cardMapper id_cardMapper;
+    @Autowired
+    private PmMapper pmMapper;
+    @Autowired
+    private CoMapper coMapper;
+
+    @Autowired
+    private RangingMapper rangingMapper;
 
 
+    //可重入锁
+    ReentrantLock lock = new ReentrantLock(true);
+    WenShidu wenShidu = new WenShidu();
+    PhotoSensitive photoSensitive = new PhotoSensitive();
+    Infrared infrared = new Infrared();
+    Fumes fumes = new Fumes();
+    Flame flame = new Flame();
+    RainDrop rainDrop = new RainDrop();
+    Soil soil = new Soil();
+    WenDu wenDu = new WenDu();
+    Ranging ranging = new Ranging();
+    FingerPrint fingerPrint = new FingerPrint();
+    ID_card id_card = new ID_card();
+    Pm pm = new Pm();
+    Co co = new Co();
+    Servos servos = new Servos();
+    HashSet<Integer> hashset = new HashSet<>();
 
-
+    @Transactional
     public void insert(String data[]) {
-
-
         try {
-             switch (data[1]) {
+            switch (data[1]) {
                 case "1":
                     //温湿度
-                    WenShidu  wenShidu=new WenShidu();
                     wenShidu.setGroupName(Integer.parseInt(data[0]));
                     wenShidu.setNumbering(Integer.parseInt(data[1]));
                     wenShidu.setWendu(Integer.parseInt(data[2]));
                     wenShidu.setShidu(Integer.parseInt(data[3].trim()));
-//                    System.out.println(wenShidu.toString());
                     wenShiduMapper.WenShiduInsert(wenShidu);
-
+                    if (!hashset.contains(Integer.parseInt(data[0]))) {
+                        hashset.add(Integer.parseInt(data[0]));
+                    }
                     break;
                 case "2":
                     //光敏
-                    PhotoSensitive photoSensitive = new PhotoSensitive();
                     photoSensitive.setGroupName(Integer.parseInt(data[0]));
                     photoSensitive.setNumbering(Integer.parseInt(data[1]));
                     photoSensitive.setPhotosensitive(Boolean.parseBoolean(data[2]));
-                    //TODO
-
+                    photoSensitiveMapper.photoSensitiveUpdate(photoSensitive);
+                    if (!hashset.contains(Integer.parseInt(data[0]))) {
+                        hashset.add(Integer.parseInt(data[0]));
+                    }
                     break;
                 case "3":
                     //人体红外
-                    Infrared infrared = new Infrared();
                     infrared.setGroupName(Integer.parseInt(data[0]));
                     infrared.setNumbering(Integer.parseInt(data[1]));
                     infrared.setInfrared(Boolean.parseBoolean(data[2]));
-
+                    infraredMapper.infraredUpdate(infrared);
+                    if (!hashset.contains(Integer.parseInt(data[0]))) {
+                        hashset.add(Integer.parseInt(data[0]));
+                    }
                     break;
                 case "4":
                     //烟雾
-                    Fumes fumes = new Fumes();
                     fumes.setGroupName(Integer.parseInt(data[0]));
                     fumes.setNumbering(Integer.parseInt(data[1]));
                     fumes.setFumes(Boolean.parseBoolean(data[2]));
-                    
+                    fumesMapper.fumesUpdate(fumes);
+                    if (!hashset.contains(Integer.parseInt(data[0]))) {
+                        hashset.add(Integer.parseInt(data[0]));
+                    }
                     break;
                 case "5":
-                   //火焰
-                    Flame flame = new Flame();
+                    //火焰
                     flame.setGroupName(Integer.parseInt(data[0]));
                     flame.setNumbering(Integer.parseInt(data[1]));
                     flame.setFlame(Boolean.parseBoolean(data[2]));
-
+                    flameMapper.flameUpdate(flame);
+                    if (!hashset.contains(Integer.parseInt(data[0]))) {
+                        hashset.add(Integer.parseInt(data[0]));
+                    }
                     break;
                 case "6":
-                   //雨滴
-                    RainDrop rainDrop = new RainDrop();
+                    //雨滴
                     rainDrop.setGroupName(Integer.parseInt(data[0]));
                     rainDrop.setNumbering(Integer.parseInt(data[0]));
                     rainDrop.setRaindrop(Boolean.parseBoolean(data[2]));
-
+                    rainDropMapper.rainDropUpdate(rainDrop);
+                    if (!hashset.contains(Integer.parseInt(data[0]))) {
+                        hashset.add(Integer.parseInt(data[0]));
+                    }
                     break;
                 case "7":
-                   //土壤
-                    Soil soil = new Soil();
+                    //土壤
                     soil.setGroupName(Integer.parseInt(data[0]));
                     soil.setNumbering(Integer.parseInt(data[1]));
                     soil.setSoil(Boolean.parseBoolean(data[2]));
-
+                    soilMapper.soilUpdate(soil);
+                    if (!hashset.contains(Integer.parseInt(data[0]))) {
+                        hashset.add(Integer.parseInt(data[0]));
+                    }
                     break;
                 case "8":
-                  //舵机
+                    //舵机
 
+                    servos.setGroupName(Integer.parseInt(data[0]));
+                    servos.setNumbering(Integer.parseInt(data[1]));
+                    servos.setAngle(Integer.parseInt(data[2]));
+                    servosMapper.ServosUpdate(servos);
+                    if (!hashset.contains(Integer.parseInt(data[0]))) {
+                        hashset.add(Integer.parseInt(data[0]));
+                    }
                     break;
                 case "9":
                     //温度
-                    WenDu wenDu = new WenDu();
                     wenDu.setGroupName(Integer.parseInt(data[0]));
                     wenDu.setNumbering(Integer.parseInt(data[1]));
                     wenDu.setWendu(Integer.parseInt(data[2]));
-
+                    wenDuMapper.wenDuInsert(wenDu);
+                    if (!hashset.contains(Integer.parseInt(data[0]))) {
+                        hashset.add(Integer.parseInt(data[0]));
+                    }
                     break;
-                 case "10":
-                     //红外测距
-                     Ranging ranging = new Ranging();
-                     ranging.setGroupName(Integer.parseInt(data[0]));
-                     ranging.setNumbering(Integer.parseInt(data[1]));
-                     ranging.setDistance(Double.parseDouble(data[2]));
-                     break;
-                 case "11":
-                     //指纹
-
-                     System.out.println("指纹！");
-                     break;
-                 case "12":
-                     //ID卡
-
-                     System.out.println("ID卡！");
-                     break;
+                case "10":
+                    //红外测距
+                    ranging.setGroupName(Integer.parseInt(data[0]));
+                    ranging.setNumbering(Integer.parseInt(data[1]));
+                    ranging.setDistance(Double.parseDouble(data[2]));
+                    rangingMapper.rangingInsert(ranging);
+                    if (!hashset.contains(Integer.parseInt(data[0]))) {
+                        hashset.add(Integer.parseInt(data[0]));
+                    }
+                    break;
+                case "11":
+                    //指纹
+                    fingerPrint.setGroupName(Integer.parseInt(data[0]));
+                    fingerPrint.setNumbering(Integer.parseInt(data[1]));
+                    fingerPrint.setNumber(data[2]);
+                    fingerPrintMapper.fingerPrintInsert(fingerPrint);
+                    if (!hashset.contains(Integer.parseInt(data[0]))) {
+                        hashset.add(Integer.parseInt(data[0]));
+                    }
+                    break;
+                case "12":
+                    //ID卡
+                    id_card.setGroupName(Integer.parseInt(data[0]));
+                    id_card.setNumbering(Integer.parseInt(data[1]));
+                    id_card.setCardNumber(data[2]);
+                    id_cardMapper.iD_cardInsert(id_card);
+                    if (!hashset.contains(Integer.parseInt(data[0]))) {
+                        hashset.add(Integer.parseInt(data[0]));
+                    }
+                    break;
+                case "13":
+                    //二氧化碳
+                    co.setGroupName(Integer.parseInt(data[0]));
+                    co.setNumbering(Integer.parseInt(data[1]));
+                    co.setConcentration(Integer.parseInt(data[2]));
+                    coMapper.coInsert(co);
+                    if (!hashset.contains(Integer.parseInt(data[0]))) {
+                        hashset.add(Integer.parseInt(data[0]));
+                    }
+                    break;
+                case "14":
+                    //PM2.5
+                    pm.setGroupName(Integer.parseInt(data[0]));
+                    pm.setNumbering(Integer.parseInt(data[1]));
+                    pm.setConcentration(Float.parseFloat(data[2]));
+                    pmMapper.pmInsert(pm);
+                    if (!hashset.contains(Integer.parseInt(data[0]))) {
+                        hashset.add(Integer.parseInt(data[0]));
+                    }
+                    break;
 
                 default:
                     System.out.println("无法分辨传感器型号！");

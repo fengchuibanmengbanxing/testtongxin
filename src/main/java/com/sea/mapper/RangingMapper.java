@@ -2,6 +2,7 @@ package com.sea.mapper;
 
 import com.sea.Entity.Ranging;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,6 +14,8 @@ import java.util.List;
 public interface RangingMapper {
 
 
-    List<Ranging> findRanging(int groupName, int numbering);
+    List<Ranging> findRanging(@Param("groupName") int groupName, @Param("numbering")int numbering);
+
+    void rangingInsert(Ranging ranging);
 
 }

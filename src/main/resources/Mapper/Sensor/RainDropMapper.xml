@@ -6,7 +6,7 @@
 <mapper namespace="com.sea.mapper.RainDropMapper">
 
 
-    <update id="RainDropUpdate">
+    <update id="rainDropUpdate">
         update raindrop set isRaindrop=#{isRaindrop}
         where  groupname=#{GroupName} and numbering=#{Numbering}
     </update>

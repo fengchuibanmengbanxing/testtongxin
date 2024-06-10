@@ -5,7 +5,7 @@
 <!--接口全类名-->
 <mapper namespace="com.sea.mapper.FlameMapper">
 
-    <update id="FlameUpdate">
+    <update id="flameUpdate">
     update flame set isFlame=#{isFlame}
     where  groupname=#{groupName} and numbering=#{numbering}
     </update>

@@ -4,12 +4,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--接口全类名-->
 <mapper namespace="com.sea.mapper.RangingMapper">
+    <insert id="rangingInsert">
+        insert into ranging (groupname, numbering, distance, time)
+        values (#{groupName},
+                #{numbering},
+                #{distance},
+                curtime())
+    </insert>
 
     <!--//红外测距-->
     <select id="findRanging" resultType="com.sea.Entity.Ranging">
-        select form ranging
+        select distance form ranging
         where groupname=#{groupName}
         and numbering=#{numbering}
+        order by time desc
+        limit 5
     </select>
 </mapper>
 

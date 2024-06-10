@@ -6,8 +6,14 @@
 <mapper namespace="com.sea.mapper.ServosMapper">
 
     <update id="ServosUpdate">
-
+        update servos set angle=#{angle}
+        where  groupname=#{groupName} and numbering=#{numbering}
     </update>
+
+    <select id="findServos" resultType="java.lang.Integer">
+        select angle from servos
+        where groupname=#{groupName} and numbering=#{numbering}
+    </select>
 </mapper>
 
         <!--文件名要与java包中全类名文件名一样否则程序会找不到-->

@@ -22,3 +22,6 @@ public class FumesServiceimpl implements FumesService {
         return isfumes;
     }
 }
+
+//                        this.temperature.push(item.wendu);
+//                                this.Timeseries.push(item.time);

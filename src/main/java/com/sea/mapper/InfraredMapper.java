@@ -3,6 +3,7 @@ package com.sea.mapper;
 import com.sea.Entity.Flame;
 import com.sea.Entity.Infrared;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @Author 清醒
@@ -11,9 +12,9 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface InfraredMapper {
 
-    public void InfraredUpdate(Infrared Infrared);
+    public void infraredUpdate(Infrared Infrared);
 
     //是否有雨滴
-    boolean isInfrared(int groupName, int numbering);
+    boolean isInfrared(@Param("groupName") int groupName, @Param("numbering")int numbering);
 
 }

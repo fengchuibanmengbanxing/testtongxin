@@ -3,6 +3,7 @@ package com.sea.mapper;
 import com.sea.Entity.WenDu;
 import com.sea.Entity.WenShidu;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -12,8 +13,8 @@ import java.util.List;
  */
 @Mapper
 public interface WenDuMapper {
-    public void WenDuInsert(WenDu wenDu);
+    public void wenDuInsert(WenDu wenDu);
 
     //返回温度集合
-    List<WenDu> findWenDu(int groupName, int numbering);
+    List<WenDu> findWenDu(@Param("groupName") int groupName, @Param("numbering")int numbering);
 }

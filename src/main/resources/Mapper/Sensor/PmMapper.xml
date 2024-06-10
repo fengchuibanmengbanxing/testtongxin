@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--接口全类名-->
+<mapper namespace="com.sea.mapper.PmMapper">
+
+
+    <select id="findPmList" resultType="com.sea.Entity.Pm">
+        select *
+        from pm
+        where groupname = #{groupName}
+        and numbering = #{numbering}
+        ORDER BY TIME DESC
+        LIMIT 5
+    </select>
+
+    <insert id="pmInsert">
+        insert into pm (groupname, numbering, concentration, creatTime)
+        values (#{groupName},
+                #{numbering},
+                #{concentration},
+                curtime())
+    </insert>
+</mapper>
+
+        <!--文件名要与java包中全类名文件名一样否则程序会找不到-->

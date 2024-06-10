@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--接口全类名-->
+<mapper namespace="com.sea.mapper.CoMapper">
+
+
+    <select id="findCoList">
+        select *
+        from co
+        where groupname = #{groupName}
+          and numbering = #{numbering}
+        ORDER BY TIME DESC
+            LIMIT 5
+    </select>
+
+    <insert id="coInsert">
+        insert into co (groupname, numbering, concentration, time)
+        values (#{groupName},
+                #{numbering},
+                #{concentration},
+                curtime())
+    </insert>
+</mapper>
+
+        <!--文件名要与java包中全类名文件名一样否则程序会找不到-->

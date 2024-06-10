@@ -19,7 +19,7 @@ public class RangingServiceimpl implements RangingService {
 
     @Override
     public List<Ranging> findRanging(int groupName, int numbering) {
-
         return  rangingMapper.findRanging(groupName,numbering);
     }
+
 }

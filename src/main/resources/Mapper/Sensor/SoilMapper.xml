@@ -6,7 +6,7 @@
 <mapper namespace="com.sea.mapper.SoilMapper">
 
 
-    <update id="SoilUpdate">
+    <update id="soilUpdate">
         update soil set isSoil=#{isSoil}
         where  groupname=#{GroupName} and numbering=#{Numbering}
     </update>
@@ -14,6 +14,7 @@
         select isSoil from soil
         where  groupname=#{groupName} and numbering=#{numbering}
     </select>
+
 </mapper>
 
         <!--文件名要与java包中全类名文件名一样否则程序会找不到-->

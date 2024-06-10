@@ -3,6 +3,7 @@ package com.sea.mapper;
 import com.sea.Entity.PhotoSensitive;
 import com.sea.Entity.RainDrop;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @Author 清醒
@@ -11,8 +12,8 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface RainDropMapper {
 
-    public void RainDropUpdate(RainDrop rainDrop);
+    public void rainDropUpdate(RainDrop rainDrop);
     //是否有雨滴
-    boolean isRainDrop(int groupName, int numbering);
+    boolean isRainDrop(@Param("groupName") int groupName, @Param("numbering")int numbering);
 
 }

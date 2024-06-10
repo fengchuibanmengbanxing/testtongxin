@@ -6,10 +6,11 @@
 <mapper namespace="com.sea.mapper.FumesMapper">
 
 
-    <update id="FumesUpdate">
+    <update id="fumesUpdate">
         update fumes set isfumes=#{isfumes}
         where  groupname=#{GroupName} and numbering=#{Numbering}
     </update>
+
     <select id="isfumes" resultType="java.lang.Boolean">
         select isfumes from fumes
         where  groupname=#{groupName} and numbering=#{numbering}

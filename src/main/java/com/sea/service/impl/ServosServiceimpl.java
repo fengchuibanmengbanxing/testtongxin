@@ -14,7 +14,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServosServiceimpl implements ServosService {
 
-
     @Autowired
     private ServosMapper servosMapper;
+
+    @Override
+    public int findServos(int groupName, int numbering) {
+        int angle =servosMapper.findServos(groupName,numbering);
+        return angle;
+    }
 }

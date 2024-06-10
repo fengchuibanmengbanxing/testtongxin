@@ -6,7 +6,7 @@
 <mapper namespace="com.sea.mapper.InfraredMapper">
 
 
-    <update id="InfraredUpdate">
+    <update id="infraredUpdate">
         update infrared set isinfrared=#{isinfrared}
         where  groupname=#{GroupName} and numbering=#{Numbering}
     </update>

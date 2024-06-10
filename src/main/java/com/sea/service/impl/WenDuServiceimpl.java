@@ -25,6 +25,5 @@ public class WenDuServiceimpl implements WenDuService {
     public List<WenDu> findWenDu(int groupName, int numbering) {
         List<WenDu> wenDuList = wenDuMapper.findWenDu(groupName, numbering);
         return  wenDuList;
-
     }
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--接口全类名-->
+<mapper namespace="com.sea.mapper.FingerPrintMapper">
+    <insert id="fingerPrintInsert">
+        insert into fingerprint (groupname, numbering, number, time)
+        values (
+                #{groupName},
+                #{numbering},
+                #{number},
+                curtime()
+               )
+    </insert>
+
+
+    <select id="findFirst" resultType="java.lang.String">
+        select number
+        from fingerprint
+        where groupname = #{groupName}
+          and numbering = #{numbering}
+        order by creatTime desc
+        LIMIT 1
+    </select>
+
+</mapper>
+
+        <!--文件名要与java包中全类名文件名一样否则程序会找不到-->

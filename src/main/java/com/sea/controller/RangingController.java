@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -24,10 +25,12 @@ import java.util.List;
 public class RangingController {
     @Autowired
     private RangingService rangingService;
+
     @RequestMapping("/findRanging")
     public Result isRainDrop(@RequestParam("groupName") int groupName,
-                             @RequestParam("numbering") int numbering ){
-        List<Ranging> rangingList=rangingService.findRanging(groupName,numbering);
+                             @RequestParam("numbering") int numbering) {
+        List<Ranging> rangingList = rangingService.findRanging(groupName, numbering);
+        Collections.reverse(rangingList);
         return Result.build(rangingList, ResultCodeEnum.SUCCESS);
     }
 }

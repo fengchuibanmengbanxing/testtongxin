@@ -5,4 +5,6 @@ package com.sea.service;
  * @Date 2024/4/27 12:34
  */
 public interface ServosService {
+    int findServos(int groupName, int numbering);
+
 }

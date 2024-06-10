@@ -6,8 +6,8 @@
 <mapper namespace="com.sea.mapper.WenDuMapper">
 
 
-    <insert id="WenDuInsert">
-        insert into wendu (groupname,numbering,wendu)
+    <insert id="wenDuInsert">
+        insert into wendu (groupname,numbering,wendu,time)
         values (
                    #{GroupName},
                    #{Numbering},
@@ -15,8 +15,9 @@
                    curtime()
                )
     </insert>
+
     <select id="findWenDu" resultType="com.sea.Entity.WenDu">
-        select * from wendu
+        select wendu,time from wendu
         where groupname=#{groupName} and  numbering=#{numbering}
     </select>
 

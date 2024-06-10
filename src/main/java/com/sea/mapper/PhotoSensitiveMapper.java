@@ -3,6 +3,7 @@ package com.sea.mapper;
 import com.sea.Entity.Fumes;
 import com.sea.Entity.PhotoSensitive;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @Author 清醒
@@ -10,7 +11,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface PhotoSensitiveMapper {
-    public void PhotoSensitiveUpdate(PhotoSensitive photoSensitive );
+    public void photoSensitiveUpdate(PhotoSensitive photoSensitive );
 
-    boolean isPhotoSensitive(int groupName, int numbering);
+    boolean isPhotoSensitive(@Param("groupName") int groupName, @Param("numbering")int numbering);
 }

@@ -3,6 +3,7 @@ package com.sea.mapper;
 import com.sea.Entity.Servos;
 import com.sea.Entity.Soil;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @Author 清醒
@@ -10,7 +11,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface SoilMapper {
-    public void SoilUpdate(Soil soil);
+    public void soilUpdate(Soil soil);
     //土壤是否湿润
-    boolean isSoil(int groupName, int numbering);
+    boolean isSoil(@Param("groupName") int groupName, @Param("numbering")int numbering);
 }

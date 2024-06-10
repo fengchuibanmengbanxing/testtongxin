@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Author 清醒
@@ -22,6 +24,7 @@ import java.util.List;
 
 @RestController
 @Slf4j
+@RequestMapping("/Show")
 public class Showcontroller {
     @Autowired
     private WenShiduService wenShiduService;
@@ -45,31 +48,11 @@ public class Showcontroller {
         return Result.build(true, ResultCodeEnum.SUCCESS);
     }
 
-
-
-//    @RequestMapping("/test")
-//    public void findwenshidutest(){
-//        String utf_8 = " {\n" +
-//                "        \"groupname\": 6,\n" +
-//                "        \"numbering\": 1,\n" +
-//                "        \"wendu\": 20,\n" +
-//                "        \"shidu\": 30\n" +
-//                "    }";
-//        boolean isjson = JSONUtil.isJson(utf_8);
-//        log.info("=================="+isjson);
-//        if (isjson) {
-//            //将串口接收的数据转化为json对象
-//            JSONObject jsonObject = JSONUtil.parseObj(utf_8);
-//            //取出传感器编号
-//            int numbering = (int) jsonObject.get("numbering");
-//            log.info(numbering+"  ");
-//            //将传感器json数据存入对应数据库表
-////            depositUtils.insert(numbering, utf_8);
-//        } else {
-//            log.error("传入数据非json格式！");
-//        }
-//
-//    }
-
+    @RequestMapping("/status")
+    public Result status() {
+        HashSet<Integer> hashset = depositUtils.getHashset();
+        List<Integer> collect = hashset.stream().collect(Collectors.toList());
+        return Result.build(collect, ResultCodeEnum.SUCCESS);
+    }
 
 }
