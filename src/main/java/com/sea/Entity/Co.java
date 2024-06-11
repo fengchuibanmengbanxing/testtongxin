@@ -1,6 +1,7 @@
 package com.sea.Entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,9 +14,11 @@ import java.sql.Time;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Co {
     private int groupName;
     private int numbering;
     private int concentration;
     private Time time;
+
 }
