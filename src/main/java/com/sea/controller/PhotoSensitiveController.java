@@ -28,6 +28,12 @@ public class PhotoSensitiveController {
                                    @RequestParam("numbering") int numbering) {
         boolean isPhotoSensitive = photoSensitiveService.isPhotoSensitive(groupName, numbering);
         return Result.build(isPhotoSensitive, ResultCodeEnum.SUCCESS);
-
     }
+
+    @RequestMapping("/insertPhotoSensitive")
+    public Result insertPhotoSensitive() {
+        boolean isPhotoSensitive = photoSensitiveService.insertPhotoSensitive();
+        return Result.build(isPhotoSensitive, ResultCodeEnum.SUCCESS);
+    }
+
 }
