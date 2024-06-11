@@ -27,9 +27,16 @@ public class ServosController {
     private ServosService servosService;
 
     @RequestMapping("/findServos")
-    public Result isRainDrop(@RequestParam("groupName") int groupName,
+    public Result isServos(@RequestParam("groupName") int groupName,
                              @RequestParam("numbering") int numbering) {
         int angle = servosService.findServos(groupName, numbering);
+
+        return Result.build(angle, ResultCodeEnum.SUCCESS);
+    }
+
+    @RequestMapping("/insertServos")
+    public Result insertServos() {
+        int angle = servosService.insertServos();
 
         return Result.build(angle, ResultCodeEnum.SUCCESS);
     }

@@ -31,4 +31,11 @@ public class PmController {
         List<Pm> PMList=pmService.findPmList(groupName,numbering);
         return Result.build(PMList, ResultCodeEnum.SUCCESS);
     }
+
+    @RequestMapping("/insertPm")
+    public Result insertPm(){
+        List<Pm> PMList=pmService.insertPm();
+        return Result.build(PMList, ResultCodeEnum.SUCCESS);
+    }
+
 }

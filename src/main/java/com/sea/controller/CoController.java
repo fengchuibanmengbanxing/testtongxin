@@ -23,10 +23,17 @@ public class CoController {
 
     @Autowired
     private CoService coService;
+
     @RequestMapping("/findCo")
     public Result findCo(@RequestParam("groupName") int groupName,
-                              @RequestParam("numbering") int numbering ){
-        List<Co> coList=coService.findCoList(groupName,numbering);
+                         @RequestParam("numbering") int numbering) {
+        List<Co> coList = coService.findCoList(groupName, numbering);
         return Result.build(coList, ResultCodeEnum.SUCCESS);
+    }
+
+    @RequestMapping("/insert")
+    public Result insertCo() {
+        coService.insertCo();
+        return Result.build(true, ResultCodeEnum.SUCCESS);
     }
 }

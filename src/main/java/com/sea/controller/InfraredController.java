@@ -29,4 +29,10 @@ public class InfraredController {
         return Result.build(isInfrared, ResultCodeEnum.SUCCESS);
     }
 
+    @RequestMapping("/insertInfrared")
+    public Result insertInfrared() {
+        boolean isInfrared = infraredService.insertInfrared();
+        return Result.build(isInfrared, ResultCodeEnum.SUCCESS);
+    }
+
 }

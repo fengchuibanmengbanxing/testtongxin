@@ -27,4 +27,10 @@ public class SoilController {
         boolean isSoil=soilService.isSoil(groupName,numbering);
         return Result.build(isSoil, ResultCodeEnum.SUCCESS);
     }
+
+    @RequestMapping("/insertSoil")
+    public Result insertSoil(){
+        boolean isSoil=soilService.insertSoil();
+        return Result.build(isSoil, ResultCodeEnum.SUCCESS);
+    }
 }

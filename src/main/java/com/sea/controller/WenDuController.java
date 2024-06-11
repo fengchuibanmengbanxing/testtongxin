@@ -25,13 +25,22 @@ import java.util.List;
 public class WenDuController {
     @Autowired
     private WenDuService wenDuService;
+
     @RequestMapping("/findWenDu")
     public Result findWenDu(@RequestParam("groupName") int groupName,
-                          @RequestParam("numbering") int numbering ){
+                            @RequestParam("numbering") int numbering) {
         //返回list集合
-        List<WenDu> wendulist=wenDuService.findWenDu(groupName,numbering);
+        List<WenDu> wendulist = wenDuService.findWenDu(groupName, numbering);
         Collections.reverse(wendulist);
         return Result.build(wendulist, ResultCodeEnum.SUCCESS);
+    }
+
+    @RequestMapping("/insertWenDu")
+    public Result insertWenDu() {
+        //返回list集合
+      wenDuService.insertWenDu();
+
+        return Result.build(true, ResultCodeEnum.SUCCESS);
     }
 
 }

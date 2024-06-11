@@ -29,4 +29,10 @@ public class FumesController {
         return Result.build(isfumes, ResultCodeEnum.SUCCESS);
     }
 
+    @RequestMapping("/insertFlame")
+    public Result insertFlame(){
+        boolean isfumes=fumesService.insertFlame();
+        return Result.build(isfumes, ResultCodeEnum.SUCCESS);
+    }
+
 }

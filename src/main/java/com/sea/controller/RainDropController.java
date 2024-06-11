@@ -28,4 +28,10 @@ public class RainDropController {
         boolean isRainDrop=rainDropService.isRainDrop(groupName,numbering);
         return Result.build(isRainDrop, ResultCodeEnum.SUCCESS);
     }
+
+    @RequestMapping("/insertRainDrop")
+    public Result insertRainDrop(){
+        boolean isRainDrop=rainDropService.insertRainDrop();
+        return Result.build(isRainDrop, ResultCodeEnum.SUCCESS);
+    }
 }

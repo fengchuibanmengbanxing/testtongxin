@@ -28,4 +28,10 @@ public class FlameController {
         return Result.build(isflame, ResultCodeEnum.SUCCESS);
     }
 
+    @RequestMapping("/insertFlame")
+    public Result insertFlame(){
+        boolean isflame=flamService.UpdateFlame();
+        return Result.build(isflame, ResultCodeEnum.SUCCESS);
+    }
+
 }

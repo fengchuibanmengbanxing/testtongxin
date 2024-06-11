@@ -27,10 +27,16 @@ public class RangingController {
     private RangingService rangingService;
 
     @RequestMapping("/findRanging")
-    public Result isRainDrop(@RequestParam("groupName") int groupName,
+    public Result isRanging(@RequestParam("groupName") int groupName,
                              @RequestParam("numbering") int numbering) {
         List<Ranging> rangingList = rangingService.findRanging(groupName, numbering);
         Collections.reverse(rangingList);
         return Result.build(rangingList, ResultCodeEnum.SUCCESS);
+    }
+
+    @RequestMapping("/insertRanging")
+    public Result insertRanging() {
+       rangingService.insertRanging();
+        return Result.build(true, ResultCodeEnum.SUCCESS);
     }
 }
