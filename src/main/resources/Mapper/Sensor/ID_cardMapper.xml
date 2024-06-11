@@ -19,7 +19,7 @@
         from id_card
         where groupname = #{groupName}
           and numbering = #{numbering}
-        order by creatTime desc LIMIT 1
+        order by time desc LIMIT 1
     </select>
 
 </mapper>

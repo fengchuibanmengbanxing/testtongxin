@@ -9,8 +9,8 @@
     <insert id="wenDuInsert">
         insert into wendu (groupname,numbering,wendu,time)
         values (
-                   #{GroupName},
-                   #{Numbering},
+                   #{groupName},
+                   #{numbering},
                    #{wendu},
                    curtime()
                )

@@ -7,14 +7,15 @@
 
 
     <update id="fumesUpdate">
-        update fumes set isfumes=#{isfumes}
-        where  groupname=#{GroupName} and numbering=#{Numbering}
+        update fumes set isfumes=#{isFumes}
+        where  groupname=#{groupName} and numbering=#{numbering}
     </update>
 
     <select id="isfumes" resultType="java.lang.Boolean">
         select isfumes from fumes
         where  groupname=#{groupName} and numbering=#{numbering}
     </select>
+
 </mapper>
 
         <!--文件名要与java包中全类名文件名一样否则程序会找不到-->

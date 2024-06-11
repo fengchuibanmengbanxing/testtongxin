@@ -20,7 +20,7 @@
         from fingerprint
         where groupname = #{groupName}
           and numbering = #{numbering}
-        order by creatTime desc
+        order by time desc
         LIMIT 1
     </select>
 

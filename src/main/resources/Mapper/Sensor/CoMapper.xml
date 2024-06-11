@@ -6,7 +6,7 @@
 <mapper namespace="com.sea.mapper.CoMapper">
 
 
-    <select id="findCoList">
+    <select id="findCoList" resultType="com.sea.Entity.Co">
         select *
         from co
         where groupname = #{groupName}

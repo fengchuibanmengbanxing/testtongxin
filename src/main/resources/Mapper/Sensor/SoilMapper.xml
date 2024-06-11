@@ -8,7 +8,7 @@
 
     <update id="soilUpdate">
         update soil set isSoil=#{isSoil}
-        where  groupname=#{GroupName} and numbering=#{Numbering}
+        where  groupname=#{groupName} and numbering=#{numbering}
     </update>
     <select id="isSoil" resultType="java.lang.Boolean">
         select isSoil from soil

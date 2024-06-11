@@ -16,7 +16,7 @@
     </select>
 
     <insert id="pmInsert">
-        insert into pm (groupname, numbering, concentration, creatTime)
+        insert into pm (groupname, numbering, concentration, time)
         values (#{groupName},
                 #{numbering},
                 #{concentration},

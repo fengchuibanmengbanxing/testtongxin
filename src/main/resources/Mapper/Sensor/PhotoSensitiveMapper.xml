@@ -7,8 +7,8 @@
 
 
     <update id="photoSensitiveUpdate">
-        update photosensitive set isphotosensitive=#{isphotosensitive}
-        where  groupname=#{GroupName} and numbering=#{Numbering}
+        update photosensitive set isphotosensitive=#{isPhotosensitive}
+        where  groupname=#{groupName} and numbering=#{numbering}
     </update>
 
     <select id="isPhotoSensitive" resultType="java.lang.Boolean">

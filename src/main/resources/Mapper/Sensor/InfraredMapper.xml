@@ -7,9 +7,10 @@
 
 
     <update id="infraredUpdate">
-        update infrared set isinfrared=#{isinfrared}
-        where  groupname=#{GroupName} and numbering=#{Numbering}
+        update infrared set isinfrared=#{isInfrared}
+        where  groupname=#{groupName} and numbering=#{numbering}
     </update>
+
     <select id="isInfrared" resultType="java.lang.Boolean">
         select isInfrared from infrared
         where  groupname=#{groupName} and numbering=#{numbering}

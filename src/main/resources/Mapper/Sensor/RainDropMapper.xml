@@ -8,8 +8,9 @@
 
     <update id="rainDropUpdate">
         update raindrop set isRaindrop=#{isRaindrop}
-        where  groupname=#{GroupName} and numbering=#{Numbering}
+        where  groupname=#{groupName} and numbering=#{numbering}
     </update>
+
     <select id="isRainDrop" resultType="java.lang.Boolean">
         select isRaindrop from raindrop
         where  groupname=#{groupName} and numbering=#{numbering}

@@ -14,7 +14,7 @@
 
     <!--//红外测距-->
     <select id="findRanging" resultType="com.sea.Entity.Ranging">
-        select distance form ranging
+        select distance from ranging
         where groupname=#{groupName}
         and numbering=#{numbering}
         order by time desc
