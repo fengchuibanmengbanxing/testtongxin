@@ -16,9 +16,22 @@ import java.util.List;
 public class CoServiceImpl implements CoService {
     @Autowired
     private CoMapper coMapper;
+
     @Override
     public List<Co> findCoList(int groupName, int numbering) {
-        coMapper.findCoList(groupName,numbering);
-        return null;
+        return coMapper.findCoList(groupName, numbering);
     }
+
+    @Override
+    public void insertCo() {
+        Co build = Co.builder()
+                .concentration(0)
+                .groupName(1)
+                .numbering(1)
+                .time(null)
+                .build();
+        coMapper.coInsert(build);
+    }
+
+
 }

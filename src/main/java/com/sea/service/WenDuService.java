@@ -11,4 +11,7 @@ import java.util.List;
 public interface WenDuService {
     //返回温度list集合
     List<WenDu> findWenDu(int groupName, int numbering);
+
+    void insertWenDu();
+
 }

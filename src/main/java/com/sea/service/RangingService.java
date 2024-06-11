@@ -11,4 +11,8 @@ import java.util.List;
 public interface RangingService {
     //红外测距
     List<Ranging> findRanging(int groupName, int numbering);
+
+
+    List<Ranging> insertRanging();
+
 }

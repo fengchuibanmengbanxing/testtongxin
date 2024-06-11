@@ -11,4 +11,6 @@ import java.util.List;
 public interface CoService {
     List<Co> findCoList(int groupName, int numbering);
 
+    void insertCo();
+
 }

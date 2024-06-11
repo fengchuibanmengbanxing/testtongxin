@@ -22,4 +22,16 @@ public class RangingServiceimpl implements RangingService {
         return  rangingMapper.findRanging(groupName,numbering);
     }
 
+    @Override
+    public List<Ranging> insertRanging() {
+        Ranging build = Ranging.builder()
+                .numbering(1)
+                .distance(1.0)
+                .time(null)
+                .groupName(1)
+                .build();
+        rangingMapper.rangingInsert(build);
+        return null;
+    }
+
 }

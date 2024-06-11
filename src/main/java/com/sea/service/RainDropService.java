@@ -7,4 +7,8 @@ package com.sea.service;
 public interface RainDropService {
     //是否有雨滴
     boolean isRainDrop(int groupName, int numbering);
+
+    boolean insertRainDrop();
+
+
 }

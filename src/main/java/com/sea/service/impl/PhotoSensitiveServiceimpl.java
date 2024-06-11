@@ -1,5 +1,6 @@
 package com.sea.service.impl;
 
+import com.sea.Entity.PhotoSensitive;
 import com.sea.mapper.InfraredMapper;
 import com.sea.mapper.PhotoSensitiveMapper;
 import com.sea.service.FlamService;
@@ -18,7 +19,19 @@ public class PhotoSensitiveServiceimpl implements PhotoSensitiveService {
 
     @Override
     public boolean isPhotoSensitive(int groupName, int numbering) {
-        photoSensitiveMapper.isPhotoSensitive( groupName, numbering);
-        return false;
+        boolean photoSensitive = photoSensitiveMapper.isPhotoSensitive(groupName, numbering);
+        return photoSensitive;
     }
+
+    @Override
+    public boolean insertPhotoSensitive() {
+        PhotoSensitive build = PhotoSensitive.builder()
+                .isPhotosensitive(true)
+                .numbering(1)
+                .groupName(1)
+                .build();
+        photoSensitiveMapper.photoSensitiveUpdate(build);
+        return true;
+    }
+
 }

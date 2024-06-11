@@ -22,4 +22,17 @@ public class PmServiceImpl implements PmService {
         List<Pm> PMList = pmMapper.findPmList(groupName, numbering);
         return PMList;
     }
+
+    @Override
+    public List<Pm> insertPm() {
+        Pm build = Pm.builder()
+                .groupName(1)
+                .numbering(1)
+                .concentration(0.12f)
+                .time(null)
+                .build();
+        pmMapper.pmInsert(build);
+        return null;
+    }
+
 }

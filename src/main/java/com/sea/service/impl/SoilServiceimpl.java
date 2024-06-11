@@ -1,5 +1,6 @@
 package com.sea.service.impl;
 
+import com.sea.Entity.Soil;
 import com.sea.mapper.ServosMapper;
 import com.sea.mapper.SoilMapper;
 import com.sea.service.FlamService;
@@ -21,6 +22,16 @@ public class SoilServiceimpl implements SoilService {
     public boolean isSoil(int groupName, int numbering) {
         boolean soil = soilMapper.isSoil(groupName, numbering);
         return  soil;
+    }
 
+    @Override
+    public boolean insertSoil() {
+        Soil build = Soil.builder()
+                .groupName(1)
+                .numbering(1)
+                .isSoil(true)
+                .build();
+        soilMapper.soilUpdate(build);
+        return false;
     }
 }

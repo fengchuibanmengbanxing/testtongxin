@@ -7,4 +7,8 @@ package com.sea.service;
 public interface PhotoSensitiveService {
     //是否有光照
     boolean isPhotoSensitive(int groupName, int numbering);
+
+    boolean insertPhotoSensitive();
+
+
 }

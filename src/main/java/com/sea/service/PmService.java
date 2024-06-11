@@ -11,4 +11,6 @@ import java.util.List;
 public interface PmService {
     List<Pm> findPmList(int groupName, int numbering);
 
+    List<Pm> insertPm();
+
 }

@@ -1,5 +1,6 @@
 package com.sea.service.impl;
 
+import com.sea.Entity.Infrared;
 import com.sea.mapper.FumesMapper;
 import com.sea.mapper.InfraredMapper;
 import com.sea.service.FlamService;
@@ -22,5 +23,16 @@ public class InfraredServiceimpl implements InfraredService {
     public boolean isInfrared(int groupName, int numbering) {
         boolean infrared = infraredMapper.isInfrared(groupName, numbering);
         return infrared;
+    }
+
+    @Override
+    public boolean insertInfrared() {
+        Infrared build = Infrared.builder()
+                .groupName(1)
+                .numbering(1)
+                .isInfrared(true)
+                .build();
+        infraredMapper.infraredUpdate(build);
+        return true;
     }
 }

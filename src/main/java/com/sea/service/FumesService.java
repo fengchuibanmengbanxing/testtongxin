@@ -7,4 +7,8 @@ package com.sea.service;
 public interface FumesService {
     //查询是否有烟雾
     boolean isfumes(int groupName, int numbering);
+
+    boolean insertFlame();
+
+
 }

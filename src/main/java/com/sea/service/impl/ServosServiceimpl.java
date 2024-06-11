@@ -1,5 +1,6 @@
 package com.sea.service.impl;
 
+import com.sea.Entity.Servos;
 import com.sea.mapper.RainDropMapper;
 import com.sea.mapper.ServosMapper;
 import com.sea.service.FlamService;
@@ -21,5 +22,16 @@ public class ServosServiceimpl implements ServosService {
     public int findServos(int groupName, int numbering) {
         int angle =servosMapper.findServos(groupName,numbering);
         return angle;
+    }
+
+    @Override
+    public int insertServos() {
+        Servos build = Servos.builder()
+                .groupName(1)
+                .numbering(1)
+                .angle(10)
+                .build();
+        servosMapper.ServosUpdate(build);
+        return 0;
     }
 }

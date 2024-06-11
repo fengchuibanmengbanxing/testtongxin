@@ -9,4 +9,6 @@ public interface InfraredService {
     boolean isInfrared(int groupName, int numbering);
 
 
+    boolean insertInfrared();
+
 }

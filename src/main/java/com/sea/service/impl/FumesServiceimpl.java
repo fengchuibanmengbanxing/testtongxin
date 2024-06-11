@@ -1,5 +1,6 @@
 package com.sea.service.impl;
 
+import com.sea.Entity.Fumes;
 import com.sea.mapper.FlameMapper;
 import com.sea.mapper.FumesMapper;
 import com.sea.service.FlamService;
@@ -21,7 +22,17 @@ public class FumesServiceimpl implements FumesService {
         boolean isfumes = fumesMapper.isfumes(groupName, numbering);
         return isfumes;
     }
+
+    @Override
+    public boolean insertFlame() {
+        Fumes build = Fumes.builder()
+                .isFumes(true)
+                .groupName(1)
+                .numbering(1)
+                .build();
+        fumesMapper.fumesUpdate(build);
+        return true;
+    }
+
 }
 
-//                        this.temperature.push(item.wendu);
-//                                this.Timeseries.push(item.time);

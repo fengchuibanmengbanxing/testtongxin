@@ -7,4 +7,6 @@ package com.sea.service;
 public interface SoilService {
     //土壤是否湿润
     boolean isSoil(int groupName, int numbering);
+
+    boolean insertSoil();
 }

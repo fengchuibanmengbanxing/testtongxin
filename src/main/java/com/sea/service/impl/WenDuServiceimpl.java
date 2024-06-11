@@ -26,4 +26,15 @@ public class WenDuServiceimpl implements WenDuService {
         List<WenDu> wenDuList = wenDuMapper.findWenDu(groupName, numbering);
         return  wenDuList;
     }
+
+    @Override
+    public void insertWenDu() {
+        WenDu build = WenDu.builder()
+                .wendu(10)
+                .time(null)
+                .groupName(1)
+                .numbering(1)
+                .build();
+        wenDuMapper.wenDuInsert(build);
+    }
 }

@@ -13,4 +13,5 @@ public interface FlamService {
     boolean isflame(int groupName, int numbering);
 
 
+    boolean UpdateFlame();
 }

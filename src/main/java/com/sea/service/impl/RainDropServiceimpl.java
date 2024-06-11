@@ -1,5 +1,6 @@
 package com.sea.service.impl;
 
+import com.sea.Entity.RainDrop;
 import com.sea.mapper.PhotoSensitiveMapper;
 import com.sea.mapper.RainDropMapper;
 import com.sea.service.RainDropService;
@@ -20,5 +21,16 @@ public class RainDropServiceimpl implements RainDropService {
     public boolean isRainDrop(int groupName, int numbering) {
         boolean rainDrop = rainDropMapper.isRainDrop(groupName, numbering);
         return rainDrop;
+    }
+
+    @Override
+    public boolean insertRainDrop() {
+        RainDrop build = RainDrop.builder()
+                .isRaindrop(true)
+                .groupName(1)
+                .numbering(1)
+                .build();
+        rainDropMapper.rainDropUpdate(build);
+        return true;
     }
 }

@@ -7,4 +7,6 @@ package com.sea.service;
 public interface ServosService {
     int findServos(int groupName, int numbering);
 
+    int insertServos();
+
 }
